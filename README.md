@@ -14,42 +14,60 @@ Currently tests need to be re-compiled with a special header that is different p
 
 ```
 foobin --libidentify-identification returns on std:cout:
-line 1: description:    <description>           [ascii string, starts at colomn 17, ends at newline]
-line 2: framework:      <frameworkname>         [ascii string, starts at colomn 17, ends at newline]
-line 3: version:        <version>               [ascii string, starts at colomn 17, ends at newline]
+line 1: description:    <description>           [ascii string, starting at colomn 17, ending at but not including newline]
+line 2: category:       <category>              [ascii string, starting at colomn 17, ending at but not including newline]
+line 3: framework:      <frameworkname>         [ascii string, starting at colomn 17, ending at but not including newline]
+line 4: version:        <version>               [ascii string, starting at colomn 17, ending at but not including newline]
 ```
 
 - <description> ascii string for display purposes, not to be used for identification
+- <category> identification of the category the binary belongs to
 - <framework> major part of the identification
 - <version> minor part of the identification 
 
 <framework> may be any string, it shall be unique and stable over all future version of your framework
 <version> shall start with <major_version_number>.<minor_version_number>. but after the second dot any text is allowed.
 
+# categories
+
+Currently there are two valid categories:
+- unspecified
+- testframework
+
+If "testframework" is returned, that implies that you also support the commandline argument: 
+```
+--libidentify-getchar-at-startup
+```
+
 # examples 
 
 ```
 myboosttest --libidentify-identification
-description:    Boost Test 
+description:    Boost Test
+category:       testframework
 framework:      boost.test
 version:        1.64.0
 
 mygoogletest --libidentify-identification
 description:    Google Test 
+category:       testframework
 framework:      Google Test
 version:        1.8.0
 
 mycatchtest --libidentify-identification
 description:    Catch Test 
+category:       testframework
 framework:      Catch Test
 version:        1.9.6
 
 myrandomtest --libidentify-identification
 description:    Any Random Discription Here
+category:       testframework
 framework:      RaNdOmTeSTFrAmEWoRk
 version:        8.4.7.2-delta
 
 ```
+
 
 
 
