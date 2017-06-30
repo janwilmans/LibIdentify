@@ -1,8 +1,8 @@
 # LibIdentify
-Standard set of methods to identify a project's executable, for now specifically aimed at test-frameworks.
+Standard method to identify a project's executable, for now specifically aimed at test-frameworks.
 
 # Abstract / Rationale
-The initial reason for the existance of this set of methods is too let [BoostTestUI](https://github.com/djeedjay/BoostTestUi) identify the kind of test it is loading. BoostTestUI is a graphical test runner for windows to run unittests, this proposal should be useful to any test-runner that has to deal with executable binaries from several test frameworks, such as for example [Microsoft Visual Studio](https://www.visualstudio.com/)
+The initial reason for the existance of this project is too let [BoostTestUI](https://github.com/djeedjay/BoostTestUi) identify the kind of test it is loading. BoostTestUI is a graphical test runner for windows to run unittests, but this proposal should be useful to any test-runner that has to deal with executable binaries from several test frameworks, such as for example [Microsoft Visual Studio](https://www.visualstudio.com/) and possibly have wider application in identification of executables in general.
 
 BoostTestUI's name is kindof obsolete, it would better be named MultiTestUI, because it currently supports Boost.Test, Google Test, Catch and Nunit.
 
