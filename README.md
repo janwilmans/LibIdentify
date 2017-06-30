@@ -55,7 +55,7 @@ framework:      Catch Test
 version:        1.9.6
 
 myrandomtest --libidentify-identification
-description:    Any Random Discription Here
+description:    Any Random Description Here
 category:       testframework
 framework:      RaNdOmTeSTFrAmEWoRk
 version:        8.4.7.2-delta
