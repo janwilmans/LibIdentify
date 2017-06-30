@@ -10,3 +10,40 @@ Currently tests need to be re-compiled with a special header that is different p
 - identify the framework, in order to know what arguments to pass
 - add an option --gui-wait to allow the UI to start the test-process without actually beginning to run anything, allowing the user to attach a debugger.
 
+# Proposed standard
+
+```
+foobin --libidentify-identification returns on std:cout:
+line 1: description:    <description>           [ascii string, starts at colomn 17, ends at newline]
+line 2: framework:      <frameworkname>         [ascii string, starts at colomn 17, ends at newline]
+line 3: version:        <version>               [ascii string, starts at colomn 17, ends at newline]
+```
+
+- <description> ascii string for display purposes, not to be used for identification
+- <framework> major part of the identification
+- <version> minor part of the identification 
+
+<framework> may be any string, it shall be unique and stable over all future version of your framework
+<version> shall start with <major_version_number>.<minor_version_number>. but after the second dot any text is allowed.
+
+# examples 
+
+```
+myboosttest --libidentify-identification
+description:    Boost Test 
+framework:      boost.test
+version:        1.64.0
+
+mygoogletest --libidentify-identification
+description:    Google Test 
+framework:      Google Test
+version:        1.8.0
+
+mycatchtest --libidentify-identification
+description:    Catch Test 
+framework:      Catch Test
+version:        1.9.6
+```
+
+
+
