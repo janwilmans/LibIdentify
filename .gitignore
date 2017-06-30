@@ -30,3 +30,16 @@
 *.exe
 *.out
 *.app
+
+Debug/
+Release/
+ipch/
+packages/
+*.vcxproj.user
+*.opensdf
+*.sdf
+*.suo
+*.aps
+*.log
+*.VC.opendb
+*.VC.db
