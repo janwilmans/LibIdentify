@@ -30,14 +30,8 @@ line 4: version:        <version>               [ascii string, starting at colom
 
 # categories
 
-Currently there are two valid categories:
-- unspecified
+Currently there is only one valid category:
 - testframework
-
-If "testframework" is returned, that implies that you also support the commandline argument: 
-```
---libidentify-getchar-at-startup
-```
 
 # examples 
 
@@ -65,7 +59,6 @@ description:    Any Random Discription Here
 category:       testframework
 framework:      RaNdOmTeSTFrAmEWoRk
 version:        8.4.7.2-delta
-
 ```
 
 
