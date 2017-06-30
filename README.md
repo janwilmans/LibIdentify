@@ -20,13 +20,13 @@ line 3: framework:      <frameworkname>         [ascii string, starting at colom
 line 4: version:        <version>               [ascii string, starting at colomn 17, ending at but not including newline]
 ```
 
-- <description> ascii string for display purposes, not to be used for identification
-- <category> identification of the category the binary belongs to
-- <framework> major part of the identification
-- <version> minor part of the identification 
+- ```<description>``` ascii string for display purposes, not to be used for identification
+- ```<category>``` identification of the category the binary belongs to
+- ```<framework>``` major part of the identification
+- ```<version>``` minor part of the identification 
 
-<framework> may be any string, it shall be unique and stable over all future version of your framework
-<version> shall start with <major_version_number>.<minor_version_number>. but after the second dot any text is allowed.
+```<framework>``` may be any string, it shall be unique and stable over all future version of your framework
+```<version>``` shall start with <major_version_number>.<minor_version_number>. but after the second dot any text is allowed.
 
 # categories
 
