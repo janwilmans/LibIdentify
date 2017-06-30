@@ -1,13 +1,13 @@
 # LibIdentify
-Standard set of methods to identify a projects executable, for now specifically aimed at test-frameworks
+Standard set of methods to identify a project's executable, for now specifically aimed at test-frameworks.
 
 # Abstract / Rationale
-The initial reason for the existance of this set of methods is too let [BoostTestUI](https://github.com/djeedjay/BoostTestUi) identify the kind of test it is loading. BoostTestUI is a graphical test runner to run unittests, it has features such as auto-reload and auto-rerun tests.
+The initial reason for the existance of this set of methods is too let [BoostTestUI](https://github.com/djeedjay/BoostTestUi) identify the kind of test it is loading. BoostTestUI is a graphical test runner for windows to run unittests, this proposal should be useful to any test-running that has to deal with executable binaries from several test frameworks.
 
 BoostTestUI's name is kindof obsolete, it would better be named MultiTestUI, because it currently supports Boost.Test, Google Test, Catch and Nunit.
 
 Currently tests need to be re-compiled with a special header that is different per test-framework to be able to do two things:
-- identify the framework, in order to know what arguments to pass
+- identify the framework, in order to know what arguments to pass, to for example list all test or execute a specific test.
 - add an option --gui-wait to allow the UI to start the test-process without actually beginning to run anything, allowing the user to attach a debugger.
 
 # Proposed standard
@@ -60,6 +60,27 @@ category:       testframework
 framework:      RaNdOmTeSTFrAmEWoRk
 version:        8.4.7.2-delta
 ```
+
+# Proposed extention for all test frameworks
+
+I propose to add an commandline argument extention to all test frameworks that do not have this yet:
+
+```
+for (int i = 0; i < argc; ++i)
+{
+    auto argument = std::string(argv[i]);
+    if (argument == "--wait-for-getchar")
+    {
+        std::cout << "#waiting" << std::endl;
+        std::getchar();
+        return;
+    }
+}
+```
+
+Note that this argument can have any name you like, it is not part of the 'libidentify' standard as such.
+
+
 
 
 
