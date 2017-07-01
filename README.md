@@ -27,7 +27,7 @@ line 4: version:        <version>               [ascii string, starting at colom
 - ```<framework>``` major part of the identification
 - ```<version>``` minor part of the identification 
 
-```<framework>``` may be any string, it shall be unique and stable over all future version of your framework
+```<framework>``` may be any string, but it shall be unique and stable over all future versions of your framework
 ```<version>``` shall start with <major_version_number>.<minor_version_number>. but after the second dot any text is allowed.
 
 # categories
