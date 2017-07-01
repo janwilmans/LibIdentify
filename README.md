@@ -12,6 +12,8 @@ Currently tests need to be re-compiled with a special header that is different p
 
 # Proposed standard
 
+Only [libidentify.h](https://github.com/janwilmans/LibIdentify/blob/master/libidentify.h) is part of the standard, main.cpp is just an example of its usage.
+
 ```
 foobin --libidentify-identification returns on std:cout:
 line 1: description:    <description>           [ascii string, starting at colomn 17, ending at but not including newline]
