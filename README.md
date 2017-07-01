@@ -80,7 +80,6 @@ void main(int argc, char* argv[])
         {
             std::cout << "#waiting" << std::endl;
             std::getchar();
-            return;
         }
     }
 
