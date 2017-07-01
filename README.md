@@ -20,7 +20,7 @@ line 3: framework:      <frameworkname>         [ascii string, starting at colom
 line 4: version:        <version>               [ascii string, starting at colomn 17, ending at but not including newline]
 ```
 
-- ```<description>``` ascii string for display purposes, not to be used for identification
+- ```<description>``` for display purposes, not to be used for identification
 - ```<category>``` identification of the category the binary belongs to
 - ```<framework>``` major part of the identification
 - ```<version>``` minor part of the identification 
