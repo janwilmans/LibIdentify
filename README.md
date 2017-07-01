@@ -61,7 +61,7 @@ framework:      RaNdOmTeSTFrAmEWoRk
 version:        8.4.7.2-delta
 ```
 
-# Proposed extention for all test frameworks
+# Additional proposed extention for all test frameworks
 
 I propose to add an commandline argument extention to all test frameworks that do not have this yet:
 
