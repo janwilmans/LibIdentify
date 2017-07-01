@@ -63,25 +63,33 @@ version:        8.4.7.2-delta
 
 # Additional proposed extention for all test frameworks
 
-I propose to add an commandline argument extention to all test frameworks that do not have this yet:
+I propose to add an commandline argument extention to wait for a UI / debugger to be attached.
+Example implementation:
 
 ```
-for (int i = 0; i < argc; ++i)
+void main(int argc, char* argv[])
 {
-    auto argument = std::string(argv[i]);
-    if (argument == "--wait-for-getchar")
+    // output identification if requested
+    LibIdentify::report("My test description", LibIdentify::category_unspecified, "My unique framework string", "1.0", argc, argv);
+
+    // wait for debugger if requested 
+    for (int i = 0; i < argc; ++i)
     {
-        std::cout << "#waiting" << std::endl;
-        std::getchar();
-        return;
+        auto argument = std::string(argv[i]);
+        if (argument == "--wait-for-getchar")
+        {
+            std::cout << "#waiting" << std::endl;
+            std::getchar();
+            return;
+        }
     }
+
+    /*
+    ... normal main() starts here...
+    */
 }
 ```
 
-Note that this argument can have any name you like, it is not part of the 'libidentify' standard as such.
-
-
-
-
+Note that this argument does not have to be '--wait-for-getchar', it can have any name you like, it is not part of the 'libidentify' standard as such. It does however enable test-runners to start the test process without actually starting the test.
 
 
