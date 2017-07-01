@@ -78,7 +78,7 @@ void main(int argc, char* argv[])
         auto argument = std::string(argv[i]);
         if (argument == "--wait-for-getchar")
         {
-            std::cout << "#waiting" << std::endl;
+            std::cout << "#waiting" << std::endl; // acknowlegdes the command was understood, make sure to use std::endl to flush the stream
             std::getchar();
         }
     }
