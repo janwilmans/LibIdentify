@@ -24,17 +24,31 @@ SOFTWARE.
 
 #pragma once
 
-#include <string>
-#include <iostream>
 #include <iomanip>
+#include <iostream>
+#include <string>
+#include <vector>
 
-namespace LibIdentify
+namespace LibIdentify {
+
+static const char* category_unspecified = "unspecified";
+static const char* category_testframework = "testframework";
+
+// to make sure these remain unique, maintain this list in the LibIdentify repository, pull requests welcome!
+static const char* framework_boosttest = "Boost.Test";
+static const char* framework_catch = "Catch";
+static const char* framework_googletest = "Google Test";
+
+// framework_ prefix to avoid clashing with reserved words
+enum class FrameworkId
 {
+    framework_unknown,
+    framework_boost,
+    framework_catch,
+    framework_google
+};
 
-static const char * category_unspecified = "unspecified";
-static const char * category_testframework = "testframework";
-
-static void report(const std::string& description, const std::string& category, const std::string& framework, const std::string& version, int argc, char * argv[])
+static void report(const std::string& description, const std::string& category, const std::string& framework, const std::string& version, int argc, char* argv[])
 {
     for (int i = 0; i < argc; ++i)
     {
@@ -50,4 +64,4 @@ static void report(const std::string& description, const std::string& category, 
     }
 }
 
-};
+}; // namespace LibIdentify
