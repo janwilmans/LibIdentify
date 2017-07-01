@@ -71,9 +71,9 @@ for (int i = 0; i < argc; ++i)
     auto argument = std::string(argv[i]);
     if (argument == "--wait-for-getchar")
     {
-        ```**std::cout << "#waiting" << std::endl;**```
-        ```**std::getchar();**```
-        ```**return;**```
+        std::cout << "#waiting" << std::endl;
+        std::getchar();
+        return;
     }
 }
 ```
