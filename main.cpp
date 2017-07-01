@@ -5,7 +5,10 @@
 
 struct IdentificationType
 {
-    explicit IdentificationType() : frameworkId(LibIdentify::FrameworkId::framework_unknown) {}
+    explicit IdentificationType()
+        : frameworkId(LibIdentify::FrameworkId::framework_unknown)
+    {
+    }
     LibIdentify::FrameworkId frameworkId;
     std::string description;
     std::string category;
@@ -13,7 +16,7 @@ struct IdentificationType
     std::string version;
 };
 
-static char * readLine(std::vector<char>& line, FILE * file)
+static char* readLine(std::vector<char>& line, FILE* file)
 {
     return std::fgets(line.data(), static_cast<int>(line.size()), file);
 }
@@ -21,7 +24,7 @@ static char * readLine(std::vector<char>& line, FILE * file)
 std::string parse(std::vector<char>& line)
 {
     auto str = std::string(line.data()).substr(16);
-    return str.substr(0, str.size()-1);
+    return str.substr(0, str.size() - 1);
 }
 
 static IdentificationType identify(const std::string& filename)
@@ -39,7 +42,7 @@ static IdentificationType identify(const std::string& filename)
     if (readLine(line, pipe) != nullptr)
         id.version = parse(line);
 
-    if (id.framework== LibIdentify::framework_boosttest)
+    if (id.framework == LibIdentify::framework_boosttest)
         id.frameworkId = LibIdentify::FrameworkId::framework_boost;
     else if (id.framework == LibIdentify::framework_catch)
         id.frameworkId = LibIdentify::FrameworkId::framework_catch;
