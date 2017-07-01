@@ -3,13 +3,22 @@
 #include <cstdio>
 #include <string>
 
+// framework_ prefix to avoid clashing with reserved words
+enum class FrameworkId
+{
+    framework_unknown,
+    framework_boost,
+    framework_catch,
+    framework_google
+};
+
 struct IdentificationType
 {
     explicit IdentificationType()
-        : frameworkId(LibIdentify::FrameworkId::framework_unknown)
+        : frameworkId(FrameworkId::framework_unknown)
     {
     }
-    LibIdentify::FrameworkId frameworkId;
+    FrameworkId frameworkId;
     std::string description;
     std::string category;
     std::string framework;
@@ -43,11 +52,11 @@ static IdentificationType identify(const std::string& filename)
         id.version = parse(line);
 
     if (id.framework == LibIdentify::framework_boosttest)
-        id.frameworkId = LibIdentify::FrameworkId::framework_boost;
+        id.frameworkId = FrameworkId::framework_boost;
     else if (id.framework == LibIdentify::framework_catch)
-        id.frameworkId = LibIdentify::FrameworkId::framework_catch;
+        id.frameworkId = FrameworkId::framework_catch;
     else if (id.framework == LibIdentify::framework_googletest)
-        id.frameworkId = LibIdentify::FrameworkId::framework_google;
+        id.frameworkId = FrameworkId::framework_google;
     return id;
 }
 
@@ -64,7 +73,7 @@ int main(int argc, char* argv[])
         std::cout << "Identify: " << filename << std::endl;
         auto executableId = identify(filename);
 
-        if (executableId.frameworkId == LibIdentify::FrameworkId::framework_unknown)
+        if (executableId.frameworkId == FrameworkId::framework_unknown)
         {
             std::cout << "Could not identify test framework\n";
             exit(1);

@@ -39,15 +39,6 @@ static const char* framework_boosttest = "Boost.Test";
 static const char* framework_catch = "Catch";
 static const char* framework_googletest = "Google Test";
 
-// framework_ prefix to avoid clashing with reserved words
-enum class FrameworkId
-{
-    framework_unknown,
-    framework_boost,
-    framework_catch,
-    framework_google
-};
-
 static void report(const std::string& description, const std::string& category, const std::string& framework, const std::string& version, int argc, char* argv[])
 {
     for (int i = 0; i < argc; ++i)
