@@ -69,6 +69,11 @@ I propose to add an commandline argument extention to wait for a UI / debugger t
 Example implementation:
 
 ```
+#include "libidentify.h"
+
+#include <cstdio>
+#include <string>
+
 void main(int argc, char* argv[])
 {
     // output identification if requested
