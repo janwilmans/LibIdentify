@@ -14,12 +14,12 @@ outputs all available tests in a json object tree in std::cout, it can be a flat
 {"tests":             // required
   {
   "name": "footest",  // required, all others are optional
-  "status": "enabled"
+  "status": "enabled",
   "group": "protocol"
   }
   {
   "name": "footest2",
-  "status": "disabled"
+  "status": "disabled",
   "group": "timing"
   }
 }
@@ -30,28 +30,36 @@ run
 
 - --libidentify-run-test <json-data>
 
+```
 {"tests":             // required
   {
   "name": "footest",  // required, all others are optional
   }
   {
-  "name": "footest2",
+  "name": "footest2"
   }
 }
 ```
 
 The output of the tests can be collected from std::cout, again from a json object:
 
+```
+{"testoutput:         
+  {
+  "line": "line1",        // the 'testoutput' object is optional
+  }
+  {
+  "line": "line2"
+  }
+}
 
-libidentify-test-output
-text...
-text...
-text...
-text...
-libidentify-test-output
+{"testresult:             // the 'restresult' object is mandatory
+  {
+  "result": "pass",       // only 'pass', 'fail' and 'undetermined' are valid values
+  "reason": "disabled",   // optional: reason is a framework specific free text 
+  }
+}
 
-libidentify-test-result
-libidentify-test-result
+```
 
-
-....work in progress... 
+Basically, the result shall be 'pass', 'fail', or 'in
