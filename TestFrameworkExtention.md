@@ -52,14 +52,25 @@ The output of the tests can be collected from std::cout, again from a json objec
   "line": "line2"
   }
 }
+```
 
+This is always the last object to be received, so receiving any other object means there is a next object to be read.
+```
 {"testresult:             // the 'restresult' object is mandatory
   {
   "result": "pass",       // only 'pass', 'fail' and 'undetermined' are valid values
   "reason": "disabled",   // optional: reason is a framework specific free text 
   }
 }
-
 ```
 
-Basically, the result shall be 'pass', 'fail', or 'in
+Discussion / Thoughts
+---------------------
+
+- I've proposed JSON objects here and communication channels std::cout / std::cin
+- alternatively temporary files could be used as 'data blocks'
+- sockets could used, allowing to run tests remotely
+- I'm open to other ideas! please contribute!
+
+
+
