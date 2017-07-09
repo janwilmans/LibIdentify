@@ -9,15 +9,39 @@ list
 
 - --libidentify-list-tests
 
-lists all available tests in a json object tree, it can be a flat list (since a flat list is also a tree)
-
+outputs all available tests in a json object tree in std::cout, it can be a flat list (since a flat list is also a tree)
+```
+{"tests":             // required
+  {
+  "name": "footest",  // required, all others are optional
+  "status": "enabled"
+  "group": "protocol"
+  }
+  {
+  "name": "footest2",
+  "status": "disabled"
+  "group": "timing"
+  }
+}
+```
 
 run
 ---
 
-- --libidentify-run-test <name>
+- --libidentify-run-test <json-data>
 
-The output of the tests can be collected from std::cout, the output ends with 
+{"tests":             // required
+  {
+  "name": "footest",  // required, all others are optional
+  }
+  {
+  "name": "footest2",
+  }
+}
+```
+
+The output of the tests can be collected from std::cout, again from a json object:
+
 
 libidentify-test-output
 text...
