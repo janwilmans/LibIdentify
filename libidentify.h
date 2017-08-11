@@ -44,7 +44,7 @@ static void report(const std::string& description, const std::string& category, 
     for (int i = 0; i < argc; ++i)
     {
         auto argument = std::string(argv[i]);
-        if (argument == "--libidentify-identification")
+        if (argument == "--libidentify")
         {
             std::cout << std::left << std::setw(16) << "description: " << description << "\n";
             std::cout << std::left << std::setw(16) << "category: " << category << "\n";

@@ -38,7 +38,7 @@ std::string parse(std::vector<char>& line)
 
 static IdentificationType identify(const std::string& filename)
 {
-    std::string cmd = filename + " --libidentify-identification";
+    std::string cmd = filename + " --libidentify";
     IdentificationType id;
     std::vector<char> line(1024);
     auto pipe = _popen(cmd.c_str(), "r");
@@ -108,7 +108,7 @@ void exampleTestMain(int argc, char* argv[])
 /*
 console output:
 
->LibIdentify.exe --libidentify-identification
+>LibIdentify.exe --libidentify
 description:    My test description
 category:       unspecified
 framework:      My unique framework string
