@@ -66,7 +66,12 @@ version:        8.4.7.2-delta
 # Additional proposed extention for all test frameworks
 
 I propose to add an commandline argument extention to wait for a UI / debugger to be attached.
-Example implementation:
+
+```
+   --wait-for-keypress <start|exit|both>
+```
+
+Simplified example implementation: (--wait-for-keypress without arguments)
 
 ```
 #include "libidentify.h"
@@ -83,9 +88,9 @@ void main(int argc, char* argv[])
     for (int i = 0; i < argc; ++i)
     {
         auto argument = std::string(argv[i]);
-        if (argument == "--wait-for-getchar")
+        if (argument == "--wait-for-keypress")
         {
-            std::cout << "#waiting" << std::endl; // acknowledges the command was understood, make sure to use std::endl to flush the stream
+            std::cout << "#waiting" << std::endl; // acknowledge the command was understood, make sure to use std::endl to flush the stream
             std::getchar();
         }
     }
