@@ -4,11 +4,17 @@ Standard method to identify a project's executable, for now specifically aimed a
 # Abstract / Rationale
 The initial reason for the existance of this project is too let [BoostTestUI](https://github.com/djeedjay/BoostTestUi) identify the kind of test it is loading. BoostTestUI is a graphical test runner for windows to run unittests, but this proposal should be useful to any test-runner that has to deal with executable binaries from several test frameworks, such as for example [Microsoft Visual Studio](https://www.visualstudio.com/) and possibly have wider application in identification of executables in general.
 
-BoostTestUI's name is kindof obsolete, it would better be named MultiTestUI, because it currently supports Boost.Test, Google Test, Catch and Nunit.
+BoostTestUI's name is kindof obsolete, it would better be named MultiTestRunner, because it currently supports Boost.Test, Google Test, Catch and Nunit.
 
 Currently tests need to be re-compiled with a special header that is different per test-framework to be able to do two things:
 - identify the framework, in order to know what arguments to pass, to for example list all test or execute a specific test.
 - add an option --gui-wait to allow the UI to start the test-process without actually beginning to run anything, allowing the user to attach a debugger.
+
+# References
+
+https://github.com/google/googletest/issues/1121
+https://github.com/philsquared/Catch/issues/931
+https://svn.boost.org/trac10/ticket/13082#ticket
 
 # Proposed standard
 
