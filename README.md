@@ -13,7 +13,7 @@ Currently tests need to be re-compiled with a special header that is different p
 # References
 
 - https://github.com/google/googletest/issues/1121
-- https://github.com/philsquared/Catch/issues/931
+- https://github.com/philsquared/Catch/issues/931  [implemented / DONE]
 - https://svn.boost.org/trac10/ticket/13082#ticket
 
 # Proposed standard
