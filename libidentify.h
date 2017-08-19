@@ -52,6 +52,11 @@ static void report(const std::string& description, const std::string& category, 
             std::cout << std::left << std::setw(16) << "version: " << version << std::endl;
             exit(0);
         }
+        if (argument == "--wait-for-keypress")
+        {
+            std::cout << "#waiting" << std::endl;
+            std::getchar();
+        }        
     }
 }
 
